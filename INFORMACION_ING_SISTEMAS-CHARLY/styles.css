@@ -1,0 +1,874 @@
+
+:root {
+    --verde:  rgb(124, 170, 124);
+    --verde-oscuro: #004d2b;
+    --verde-claro: #0a8f52;
+    --amarillo: #f5c400;
+    --oscuro: #10231b;
+    --gris: #66736d;
+    --fondo: #f6f8f7;
+    --blanco: #ffffff;
+    --sombra: 0 15px 40px rgba(0, 40, 25, 0.10);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #23312b;
+    background: var(--blanco);
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+    font-family: "Montserrat", sans-serif;
+}
+
+section {
+    overflow: hidden;
+}
+
+.espaciado-seccion {
+    padding: 100px 0;
+}
+
+.etiqueta-seccion {
+    display: inline-block;
+    color: var(--verde);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.seccion-encabezado {
+    max-width: 760px;
+    margin: auto;
+}
+
+.seccion-encabezado h2 {
+    color: var(--oscuro);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.seccion-encabezado p {
+    color: var(--gris);
+    line-height: 1.8;
+}
+
+.seccion-encabezado.modo-claro h2,
+.seccion-encabezado.modo-claro p {
+    color: var(--blanco);
+}
+
+.seccion-encabezado.modo-claro .etiqueta-seccion {
+    color: var(--amarillo);
+}
+
+
+.navegacion-principal {
+    padding: 13px 0;
+    background: rgba(0, 55, 32, 0.96);
+    backdrop-filter: blur(12px);
+    transition: 0.3s;
+}
+
+.icono-marca {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--amarillo);
+    color: var(--verde-oscuro);
+    font-size: 1.35rem;
+}
+
+.titulo-marca {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.navbar-brand small {
+    display: block;
+    font-size: 0.67rem;
+    opacity: 0.78;
+}
+
+.nav-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--amarillo) !important;
+}
+
+.boton-oficial {
+    color: var(--verde) !important;
+    font-weight: 700;
+}
+
+.seccion-principal {
+    position: relative;
+    min-height: 100vh;
+    /* Se ajustó la opacidad del degradado de verde oscuro a valores más transparentes (0.55 y 0.25) */
+    background:
+        linear-gradient(110deg, rgba(0, 52, 31, 0.55), rgba(0, 70, 43, 0.25)),
+        url("https://www.cientifica.edu.pe/wp-content/uploads/2026/04/Sobre-carrera-Ingenieria-de-Sistemas-de-Informacion.png")
+        center/cover no-repeat;
+    color: var(--blanco);
+}
+
+.capa-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(245, 196, 0, 0.16), transparent 30%),
+        linear-gradient(transparent, rgba(0, 30, 18, 0.25));
+}
+
+.contenido-principal {
+    position: relative;
+    z-index: 2;
+}
+
+.etiqueta-subtitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.seccion-principal h1 {
+    font-size: clamp(3.2rem, 8vw, 6.8rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.seccion-principal h1 span {
+    color: var(--amarillo);
+}
+
+.texto-principal {
+    max-width: 720px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: rgba(255,255,255,0.86);
+    margin-bottom: 35px;
+}
+
+.boton-primario {
+    background: var(--amarillo);
+    border: 2px solid var(--amarillo);
+    color: #1f2a22;
+    padding: 13px 23px;
+    border-radius: 9px;
+    font-weight: 800;
+}
+
+.boton-primario:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--verde);
+    transform: translateY(-2px);
+}
+
+.boton-secundario {
+    border: 2px solid rgba(255,255,255,0.7);
+    color: #fff;
+    padding: 13px 23px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.boton-secundario:hover {
+    background: #fff;
+    color: var(--verde);
+}
+
+.indicador-desplazamiento {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--amarillo);
+    font-size: 1.5rem;
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 9px); }
+}
+
+
+/* =========================
+   ESTADÍSTICAS
+========================= */
+
+.seccion-estadisticas {
+    position: relative;
+    margin-top: -70px;
+    z-index: 5;
+}
+
+.tarjeta-estadisticas {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+}
+
+.elemento-estadistica {
+    text-align: center;
+    padding: 28px 15px;
+    border-right: 1px solid #e7ece9;
+}
+
+.elemento-estadistica:last-child {
+    border-right: 0;
+}
+
+.elemento-estadistica i {
+    display: block;
+    color: var(--verde);
+    font-size: 1.45rem;
+    margin-bottom: 8px;
+}
+
+.elemento-estadistica strong {
+    display: block;
+    color: var(--oscuro);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.elemento-estadistica span {
+    color: var(--gris);
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjeta-informacion,
+.tarjeta-contacto,
+.tarjeta-habilidad,
+.tarjeta-plan {
+    height: 100%;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e8eeeb;
+    border-radius: 17px;
+    transition: 0.3s;
+}
+
+.tarjeta-informacion:hover,
+.tarjeta-contacto:hover,
+.tarjeta-habilidad:hover,
+.tarjeta-plan:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--sombra);
+    border-color: rgba(0,107,60,0.15);
+}
+
+.caja-icono {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    background: #e8f5ef;
+    color: var(--verde);
+    border-radius: 14px;
+    font-size: 1.5rem;
+    margin-bottom: 22px;
+}
+
+.tarjeta-informacion h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.tarjeta-informacion p {
+    color: var(--gris);
+    margin: 0;
+}
+
+
+/* =========================
+   PROGRAMA
+========================= */
+
+.descripcion-programa {
+    padding-top: 30px;
+}
+
+.descripcion-programa h2,
+.seccion-perfil h2,
+.datos-academicos h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--oscuro);
+    line-height: 1.15;
+    margin-bottom: 22px;
+}
+
+.descripcion-programa p,
+.seccion-perfil p,
+.datos-academicos p {
+    color: var(--gris);
+    line-height: 1.85;
+}
+
+.panel-caracteristicas {
+    padding: 35px;
+    border-radius: 20px;
+    background: var(--fondo);
+    border-left: 5px solid var(--verde);
+}
+
+.item-caracteristica {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #dce6e1;
+}
+
+.item-caracteristica:last-child {
+    border-bottom: 0;
+}
+
+.item-caracteristica > i {
+    color: var(--verde);
+    font-size: 1.7rem;
+}
+
+.item-caracteristica h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.item-caracteristica p {
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+
+/* =========================
+   MISIÓN / VISIÓN
+========================= */
+
+.seccion-oscura {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(245,196,0,0.10), transparent 28%),
+        linear-gradient(135deg, #003d24, #006b3c);
+    color: #fff;
+}
+
+.tarjeta-mision {
+    height: 100%;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+}
+
+.icono-circular {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    background: var(--amarillo);
+    color: var(--verde-oscuro);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.tarjeta-mision h3 {
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.tarjeta-mision p {
+    color: rgba(255,255,255,0.78);
+    line-height: 1.85;
+    margin: 0;
+}
+
+
+/* =========================
+   PERFIL DE EGRESO
+========================= */
+
+.seccion-perfil {
+    background: #fff;
+}
+
+.red-habilidades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.tarjeta-habilidad {
+    padding: 25px;
+    background: var(--fondo);
+}
+
+.tarjeta-habilidad i {
+    color: var(--verde);
+    font-size: 1.6rem;
+}
+
+.tarjeta-habilidad h4 {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.tarjeta-habilidad p {
+    font-size: 0.84rem;
+    margin: 0;
+}
+
+
+/* =========================
+   PLAN DE ESTUDIOS
+========================= */
+
+.seccion-plan {
+    background: var(--fondo);
+}
+
+.tarjeta-plan {
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-plan > span {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: #dce7e2;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.tarjeta-plan i {
+    color: var(--verde);
+    font-size: 1.8rem;
+}
+
+.tarjeta-plan h4 {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.tarjeta-plan p {
+    color: var(--gris);
+    font-size: 0.84rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================
+   TABLA DE DATOS
+========================= */
+
+.datos-academicos {
+    background: #fff;
+}
+
+.tabla-datos {
+    background: #fff;
+    border: 1px solid #e5ece8;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 17px 20px;
+    border-color: #e9efec;
+}
+
+.tabla-datos th {
+    width: 38%;
+    background: #f5f8f6;
+    color: var(--oscuro);
+    font-weight: 700;
+}
+
+.tabla-datos td {
+    color: var(--gris);
+}
+
+
+/* =========================
+   CENTRO DE DOCUMENTOS
+========================= */
+
+.red-documentos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tarjeta-documento {
+    display: grid;
+    grid-template-columns: 52px 1fr 24px;
+    gap: 15px;
+    align-items: center;
+    padding: 19px;
+    background: #fff;
+    border: 1px solid #e3ebe6;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #10231b;
+    transition: .25s;
+    box-shadow: 0 4px 15px rgba(0,50,30,.03);
+}
+
+.tarjeta-documento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,50,30,.1);
+    border-color: #b9d8c8;
+}
+
+.tarjeta-documento > i {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #eaf5ef;
+    color: #006b3c;
+    font-size: 1.35rem;
+}
+
+.tarjeta-documento h4 {
+    font-size: .92rem;
+    font-weight: 800;
+    margin: 0 0 4px;
+}
+
+.tarjeta-documento p {
+    font-size: .72rem;
+    color: #66736d;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tarjeta-documento > b {
+    color: #006b3c;
+    font-size: 1rem;
+}
+
+
+/* =========================
+   LLAMADO A LA ACCIÓN (CTA)
+========================= */
+
+.seccion-llamado {
+    padding: 80px 0;
+    background: var(--fondo);
+}
+
+.caja-llamado {
+    padding: 65px 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #004d2b, #00804a);
+    color: #fff;
+    box-shadow: var(--sombra);
+}
+
+.caja-llamado > i {
+    color: var(--amarillo);
+    font-size: 2.7rem;
+}
+
+.caja-llamado h2 {
+    max-width: 750px;
+    margin: 20px auto 15px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+}
+
+.caja-llamado p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+.seccion-contacto {
+    background: #f8faf9;
+}
+
+.tarjeta-contacto {
+    text-align: center;
+    padding: 35px 25px;
+    background: #ffffff;
+    border: 1px solid #e1e9e5;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 50, 30, 0.04);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto al pasar el cursor (Hover) */
+.tarjeta-contacto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(0, 107, 60, 0.12);
+    border-color: #006b3c;
+}
+
+/* Línea decorativa verde superior */
+.tarjeta-contacto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #006b3c, #f5c400);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-contacto:hover::before {
+    opacity: 1;
+}
+
+/* Estilo del ícono dentro de un círculo */
+.tarjeta-contacto > i {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    background: #e8f5ef;
+    color: #006b3c;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-contacto:hover > i {
+    background: #006b3c;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Título de cada tarjeta */
+.tarjeta-contacto h4 {
+    margin: 10px 0 8px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #10231b;
+}
+
+/* Texto descriptivo */
+.tarjeta-contacto p {
+    color: #5d6d66;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* =========================
+   PIE DE PÁGINA (FOOTER)
+========================= */
+
+.pie-pagina {
+    padding: 45px 0;
+    background: #071b12;
+    color: #fff;
+}
+
+.marca-pie {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.marca-pie strong,
+.marca-pie span {
+    display: block;
+}
+
+.marca-pie strong {
+    font-family: "Montserrat", sans-serif;
+}
+
+.marca-pie span {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.8rem;
+}
+
+.texto-pie,
+.derechos-autor {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.78rem;
+    margin-top: 14px;
+}
+
+.enlace-pie {
+    color: var(--amarillo);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.enlace-pie:hover {
+    color: #fff;
+}
+
+
+/* =========================
+   BOTÓN ARRIBA
+========================= */
+
+.boton-arriba {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    display: none;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    box-shadow: var(--sombra);
+    z-index: 1000;
+}
+
+.boton-arriba.show {
+    display: grid;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        margin-top: 15px;
+        padding: 12px 0;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0 !important;
+    }
+
+    .seccion-principal h1 {
+        letter-spacing: -2px;
+    }
+
+    .seccion-estadisticas {
+        margin-top: -45px;
+    }
+}
+
+@media (max-width: 767px) {
+    .espaciado-seccion {
+        padding: 75px 0;
+    }
+
+    .seccion-principal {
+        min-height: 90vh;
+    }
+
+    .seccion-principal h1 {
+        font-size: 3.4rem;
+    }
+
+    .tarjeta-estadisticas {
+        border-radius: 14px;
+    }
+
+    .elemento-estadistica:nth-child(2) {
+        border-right: 0;
+    }
+
+    .elemento-estadistica:nth-child(-n+2) {
+        border-bottom: 1px solid #e7ece9;
+    }
+
+    .red-habilidades,
+    .red-documentos {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-mision {
+        padding: 30px;
+    }
+
+    .panel-caracteristicas {
+        padding: 25px;
+    }
+
+    .caja-llamado {
+        padding: 50px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-marca {
+        font-size: 0.82rem;
+    }
+
+    .navbar-brand small {
+        font-size: 0.58rem;
+    }
+
+    .seccion-principal h1 {
+        font-size: 2.9rem;
+    }
+
+    .botones-principal .btn {
+        width: 100%;
+    }
+}
